@@ -7,6 +7,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.util.Date;
+import java.util.List;
 
 @Data
 @NoArgsConstructor
@@ -28,6 +29,10 @@ public class Movie {
     @Column(length = 1000)
     private String description;
 
-    private String category;
+    @ElementCollection
+    @CollectionTable(name = "movie_categories", joinColumns = @JoinColumn(name = "movie_id"))
+    @Column(name = "category")
+    private List<String> categories;
+
     private String image;
 }
