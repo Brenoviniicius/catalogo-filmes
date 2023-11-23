@@ -1,0 +1,20 @@
+version: "3.8"
+
+services:
+  postgres-filmes:
+    image: postgres
+    container_name: postgres-filmes
+    restart: always
+    environment:
+      POSTGRES_USER: root
+      POSTGRES_PASSWORD: root
+      DB_FILMES_PORT: 5434
+      POSTGRES_DB: db_filmes
+    ports:
+      - "5434:5432"
+    networks:
+      - spring
+
+networks:
+  spring:
+    driver: bridge
