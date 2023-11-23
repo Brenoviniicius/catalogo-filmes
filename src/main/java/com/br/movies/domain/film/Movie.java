@@ -29,7 +29,7 @@ public class Movie {
     @Column(length = 1000)
     private String description;
 
-    @ElementCollection
+    @ElementCollection(fetch = FetchType.LAZY)
     @CollectionTable(name = "movie_categories", joinColumns = @JoinColumn(name = "movie_id"))
     @Column(name = "category")
     private List<String> categories;

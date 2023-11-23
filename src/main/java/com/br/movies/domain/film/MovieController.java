@@ -2,6 +2,7 @@ package com.br.movies.domain.film;
 
 import com.br.movies.domain.film.payloads.MovieRequest;
 import com.br.movies.domain.film.payloads.MovieResponse;
+import com.br.movies.utils.AppConstants;
 import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -28,8 +29,9 @@ public class MovieController {
     }
 
     @GetMapping
-    public ResponseEntity<List<MovieResponse>> getAllMovies() {
-        return new ResponseEntity<>(movieService.getAllMovies(), HttpStatus.OK);
+    public ResponseEntity<List<MovieResponse>> getAllMovies(@RequestParam(name = "page", required = false, defaultValue = AppConstants.DEFAULT_PAGE_NUMBER) Integer page,
+                                                            @RequestParam(name = "size", required = false, defaultValue = AppConstants.DEFAULT_PAGE_SIZE) Integer size) {
+        return new ResponseEntity<>(movieService.getAllMovies(page, size), HttpStatus.OK);
     }
 
     @PutMapping("/{id}")

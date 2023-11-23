@@ -11,7 +11,7 @@ public interface MovieService {
 
     MovieResponse getMovieById(Long id);
 
-    List<MovieResponse> getAllMovies();
+    List<MovieResponse> getAllMovies(int page, int size);
 
     MovieResponse updateMovie(Long id, MovieRequest movieRequest);
 
