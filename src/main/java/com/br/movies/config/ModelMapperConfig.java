@@ -1,4 +1,4 @@
-package com.br.filmes.config;
+package com.br.movies.config;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.context.annotation.Bean;

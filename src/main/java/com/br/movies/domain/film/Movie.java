@@ -1,4 +1,4 @@
-package com.br.filmes.domain.film;
+package com.br.movies.domain.film;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.*;
@@ -12,7 +12,7 @@ import java.util.Date;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-public class Film {
+public class Movie {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

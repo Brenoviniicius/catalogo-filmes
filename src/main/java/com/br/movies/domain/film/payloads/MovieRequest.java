@@ -1,4 +1,4 @@
-package com.br.filmes.domain.film.payloads;
+package com.br.movies.domain.film.payloads;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.validation.constraints.NotBlank;
@@ -14,7 +14,7 @@ import java.util.Date;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class FilmRequest {
+public class MovieRequest {
 
     @NotBlank(message = "title must not be blank")
     @Pattern(regexp = "^(?!\\s)[\\p{L}\\d]+(?:[\\s-][\\p{L}\\d]+)*$", message = "title should only contain letters, numbers, and spaces")
