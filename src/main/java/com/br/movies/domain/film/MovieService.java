@@ -34,4 +34,12 @@ public class MovieService {
                 .map(movie -> mapper.map(movie, MovieResponse.class))
                 .collect(Collectors.toList());
     }
+
+    public void deleteMovieById(Long id) {
+        if (!movieRepository.existsById(id)) {
+            throw new MovieNotFoundException("Movie not found with id: " + id);
+        }
+
+        movieRepository.deleteById(id);
+    }
 }
