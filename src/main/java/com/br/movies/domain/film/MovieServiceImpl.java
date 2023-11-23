@@ -6,12 +6,8 @@ import com.br.movies.exception.MovieNotFoundException;
 import lombok.AllArgsConstructor;
 import org.modelmapper.ModelMapper;
 import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
-
-import java.util.List;
-import java.util.stream.Collectors;
 
 @Service
 @AllArgsConstructor
@@ -33,12 +29,9 @@ public class MovieServiceImpl implements MovieService{
     }
 
     @Override
-    public List<MovieResponse> getAllMovies(int page, int size) {
-        Pageable pageable = PageRequest.of(page, size);
+    public Page<MovieResponse> getAllMovies(Pageable pageable) {
         Page<Movie> moviesPage = movieRepository.findAllMovies(pageable);
-        return moviesPage.getContent().stream()
-                .map(movie -> mapper.map(movie, MovieResponse.class))
-                .collect(Collectors.toList());
+        return moviesPage.map(movie -> mapper.map(movie, MovieResponse.class));
     }
 
     @Override

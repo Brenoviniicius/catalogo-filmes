@@ -2,8 +2,8 @@ package com.br.movies.domain.film;
 
 import com.br.movies.domain.film.payloads.MovieRequest;
 import com.br.movies.domain.film.payloads.MovieResponse;
-
-import java.util.List;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 
 public interface MovieService {
 
@@ -11,7 +11,7 @@ public interface MovieService {
 
     MovieResponse getMovieById(Long id);
 
-    List<MovieResponse> getAllMovies(int page, int size);
+    Page<MovieResponse> getAllMovies(Pageable pageable);
 
     MovieResponse updateMovie(Long id, MovieRequest movieRequest);
 
